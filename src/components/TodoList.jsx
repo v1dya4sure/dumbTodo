@@ -48,29 +48,35 @@ const TodoList = () => {
     );
   }
   return (
-    <div className="bg-blue-400 text-center w-1/2 flex flex-col justify-center items-center ">
-      {tasks.map((task) => (
-        <TodoItem
-          key={task.id}
-          task={task}
-          toggleCompleted={toggleCompleted}
-          deleteTask={deleteTask}
-        />
-      ))}
-      <input
-        className="border"
-        placeholder="Add a new Task"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <div>
-        <button
-          className="bg-green-500 p-2 rounded
+    <div>
+      <div className="font-bold text-2xl text-center bg-slate-500 rounded mb-2 p-1">
+        DUMB TODO
+      </div>
+      <div className="bg-slate-500 flex flex-col justify-center items-center gap-3 py-10  rounded border w-[500px] ">
+        {tasks.map((task) => (
+          <TodoItem
+            key={task.id}
+            task={task}
+            toggleCompleted={toggleCompleted}
+            deleteTask={deleteTask}
+          />
+        ))}
+
+        <div className="flex justify-around">
+          <input
+            className="border"
+            placeholder="Add a new Task"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button
+            className="bg-green-500 p-2 px-3 font-mono text-xl rounded
 "
-          onClick={() => addTask(text)}
-        >
-          Add
-        </button>
+            onClick={() => addTask(text)}
+          >
+            Add
+          </button>
+        </div>
       </div>
     </div>
   );

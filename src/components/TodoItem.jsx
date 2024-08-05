@@ -5,15 +5,28 @@ const TodoItem = ({task, deleteTask, toggleCompleted}) => {
     toggleCompleted(task.id);
   }
   return (
-    <div>
-      <input type="checkbox" checked={task.completed} onChange={handleChange} />
-      <p>{task.text}</p>
-      <button
-        className="bg-red-400 p-1 rounded"
-        onClick={() => deleteTask(task.id)}
-      >
-        Delete
-      </button>
+    <div className="flex gap-2 border w-2/3 p-2 justify-between">
+      <div>
+        <p className="font-mono font-semibold text-xl text-white">
+          {task.text}
+        </p>
+      </div>
+
+      <div className="">
+        <input
+          className="mr-4"
+          type="checkbox"
+          checked={task.completed}
+          onChange={handleChange}
+        />
+
+        <button
+          className="bg-red-400 p-1 rounded"
+          onClick={() => deleteTask(task.id)}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 };
